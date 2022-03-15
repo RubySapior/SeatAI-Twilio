@@ -162,14 +162,14 @@ function startWebServer(model: {
                     try {
                         if(takencount >= totalChairs){
                             await twilioClient.messages.create({
-                                body: 'Room is Full\nEmpty Seats: ' +emptycount+"\nTaken Seats: " +takencount+"\nOccupancy: " + takencount+"/" + totalChairs,
+                                body: '\nRoom is Full\nEmpty Seats: ' +emptycount+"\nTaken Seats: " +takencount+"\nOccupancy: " + takencount+"/" + totalChairs,
                                 to: process.env.TWILIO_TO || '',
                                 from: process.env.TWILIO_FROM || ''
                             });
                         }
                         else{
                             await twilioClient.messages.create({
-                                body: 'Room is Partially Occupied\n'+'Empty Seats: ' + emptycount+"\nTaken Seats: " +takencount+"\nOccupancy: " + takencount+"/" + totalChairs,
+                                body: '\nRoom is Partially Occupied\n'+'Empty Seats: ' + emptycount+"\nTaken Seats: " +takencount+"\nOccupancy: " + takencount+"/" + totalChairs,
                                 to: process.env.TWILIO_TO || '',
                                 from: process.env.TWILIO_FROM || ''
                             });
@@ -196,7 +196,7 @@ function startWebServer(model: {
                     lastSentMessage = Date.now();
                     try {
                         await twilioClient.messages.create({
-                            body: 'Room is empty\nEmpty Seats: ' +emptycount+"\nTaken Seats: " +takencount+"\nOccupancy: " + takencount+"/" + totalChairs,
+                            body: '\nRoom is empty\nEmpty Seats: ' +emptycount+"\nTaken Seats: " +takencount+"\nOccupancy: " + takencount+"/" + totalChairs,
                             to: process.env.TWILIO_TO || '',
                             from: process.env.TWILIO_FROM || ''
                         });
